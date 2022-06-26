@@ -10,7 +10,7 @@ public class MainTest {
     @Test
     @Timeout(value = 21, unit = TimeUnit.SECONDS)
     void checkTime () throws Exception {
-        Main.main(new String[0]);
+        Main.main(null);
     }
 
 }

@@ -37,7 +37,7 @@ public class HippodromeTest {
 
     @Test
     public void exceptionWhenEmptyList() {
-        List<Horse> horses = null;
+        List<Horse> horses = new ArrayList<>();
         assertThrows(IllegalArgumentException.class, () -> {
             new Hippodrome(horses);
         });
@@ -55,36 +55,9 @@ public class HippodromeTest {
     @Test
     public void checkGetHorses() {
         List<Horse> horses = new ArrayList<>();
-        horses.add(new Horse("q", 1, 1));
-        horses.add(new Horse("w", 1, 1));
-        horses.add(new Horse("e", 1, 1));
-        horses.add(new Horse("r", 1, 1));
-        horses.add(new Horse("t", 1, 1));
-        horses.add(new Horse("t", 1, 9));
-        horses.add(new Horse("y", 1, 1));
-        horses.add(new Horse("i", 1, 1));
-        horses.add(new Horse("o", 1, 9));
-        horses.add(new Horse("as", 1, 1));
-        horses.add(new Horse("ss", 1, 1));
-        horses.add(new Horse("d", 1, 1));
-        horses.add(new Horse("x", 1, 1));
-        horses.add(new Horse("g", 1, 6));
-        horses.add(new Horse("l", 1, 7));
-        horses.add(new Horse("k", 3, 1));
-        horses.add(new Horse("j", 1, 1));
-        horses.add(new Horse("h", 1, 1));
-        horses.add(new Horse("g", 1, 1));
-        horses.add(new Horse("m", 1, 5));
-        horses.add(new Horse("b", 1, 1));
-        horses.add(new Horse("v", 4, 1));
-        horses.add(new Horse("c", 1, 1));
-        horses.add(new Horse("x", 1, 1));
-        horses.add(new Horse("z", 1, 1));
-        horses.add(new Horse("ds", 1, 1));
-        horses.add(new Horse("v", 1, 1));
-        horses.add(new Horse("b", 1, 1));
-        horses.add(new Horse("n", 1, 1));
-        horses.add(new Horse("r", 1, 1));
+        for (int i = 0; i < 49; i++) {
+            horses.add(new Horse(""+i, i, i));
+        }
         Hippodrome hippodrome = new Hippodrome(horses);
         assertEquals(horses, hippodrome.getHorses());
     }
